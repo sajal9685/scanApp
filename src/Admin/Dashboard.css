@@ -1,0 +1,187 @@
+/* General Layout */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #fef2f2; /* Cream background */
+  margin: 0;
+  padding: 0;
+}
+
+/* Card Layout: Arrangement of Cards in Same Row */
+.row.g-3.mb-4 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+
+.col-12.col-md-6.col-lg-3 {
+  flex: 1 1 calc(25% - 1.5rem);
+  max-width: calc(25% - 1.5rem);
+  margin-bottom: 1.5rem;
+}
+
+/* Card Styling */
+.card {
+  background-color: #fef2f2; /* Cream background */
+  border-radius: 10px;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-body {
+  padding: 1.25rem;
+}
+
+.card-body .d-flex {
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body .bg-primary,
+.card-body .bg-success,
+.card-body .bg-warning,
+.card-body .bg-info {
+  background-color: rgba(255, 111, 97, 0.1); /* Red tint */
+  padding: 1rem;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-body .text-primary,
+.card-body .text-success,
+.card-body .text-warning,
+.card-body .text-info {
+  font-size: 1.5rem;
+  color: #B22222; /* Dark red */
+}
+
+.card-body h3.mb-0 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #B22222; /* Dark red text */
+}
+
+/* Table Styling */
+.table-container {
+  width: 100%;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fef2f2; /* Cream background */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.table thead {
+  background: linear-gradient(45deg, #FF6F61, #B22222); /* Red gradient */
+  color: #fef2f2; /* Cream text */
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.table th {
+  font-weight: bold;
+}
+
+.table tbody tr:hover {
+  background-color: rgba(255, 111, 97, 0.1); /* Light red hover */
+}
+
+.table td {
+  padding: 0.75rem 1rem;
+}
+
+.table .btn-refresh {
+  font-size: 1.2rem;
+  color: #B22222; /* Dark red */
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.table .btn-refresh:hover {
+  color: #FF6F61; /* Brighter red */
+  transform: scale(1.1);
+}
+
+/* Icon Button (expand/collapse) */
+.table td button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: #B22222; /* Dark red */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.table td button:hover {
+  color: #FF6F61; /* Brighter red */
+  transform: scale(1.2);
+}
+
+/* Expanded Row Styling */
+.table .bg-light {
+  background-color: #fef2f2; /* Light cream */
+  border-left: 4px solid #B22222; /* Dark red border */
+  padding: 1rem;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+}
+
+/* Responsive Styling */
+@media (max-width: 1200px) {
+  .col-12.col-md-6.col-lg-3 {
+    flex: 1 1 calc(33.333% - 1.5rem);
+    max-width: calc(33.333% - 1.5rem);
+  }
+
+  .table th, .table td {
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .col-12.col-md-6.col-lg-3 {
+    flex: 1 1 calc(50% - 1.5rem);
+    max-width: calc(50% - 1.5rem);
+  }
+
+  .table th, .table td {
+    padding: 0.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .col-12.col-md-6.col-lg-3 {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .table th, .table td {
+    padding: 0.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .card-body h3.mb-0 {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,165 @@
+/* UserRegister.css */
+:root {
+  /* Color Palette */
+  --primary-color: #4f46e5;        /* Indigo 600 */
+  --primary-color-light: #6366f1;  /* Indigo 500 */
+  --text-color-dark: #1f2937;      /* Gray 900 */
+  --text-color-light: #4b5563;     /* Gray 700 */
+  --background-color: #f3f4f6;     /* Gray 100 */
+  --white: #ffffff;
+  --error-color: #ef4444;          /* Red 500 */
+}
+
+.user-register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fef6f6, #fef6f6);
+  padding: 1rem;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-register-card {
+  width: 100%;
+  max-width: 28rem;
+  background-color: var(--white);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  padding: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.user-register-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15);
+}
+
+.user-register-title {
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--text-color-dark);
+  margin-bottom: 1rem;
+}
+
+.user-register-subtitle {
+  text-align: center;
+  color: var(--text-color-light);
+  margin-bottom: 2rem;
+}
+
+.user-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-input-group {
+  position: relative;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-color-dark);
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-label {
+  position: absolute;
+  top: -0.75rem;
+  left: 0.75rem;
+  background-color: var(--white);
+  padding: 0 0.25rem;
+  font-size: 0.75rem;
+  color: var(--text-color-light);
+  transition: all 0.3s ease;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: var(--primary-color-light);
+  transform: scale(1.02);
+}
+
+.submit-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--text-color-light);
+}
+
+.login-link-text {
+  color: var(--primary-color);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-link-text:hover {
+  color: var(--primary-color-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) {
+  .user-register-card {
+    width: 95%;
+    padding: 1.5rem;
+  }
+
+  .user-register-title {
+    font-size: 1.75rem;
+  }
+
+  .form-input {
+    font-size: 0.9rem;
+  }
+}
+
+/* Accessibility and Focus States */
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  color: var(--primary-color);
+  top: -0.75rem;
+}
+
+/* Animation for inputs */
+@keyframes inputHighlight {
+  0% { border-color: #d1d5db; }
+  100% { border-color: var(--primary-color); }
+}

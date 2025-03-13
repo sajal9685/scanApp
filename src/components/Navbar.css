@@ -1,0 +1,424 @@
+/* CSS Custom Properties for consistent usage */
+:root {
+  --primary-color: #FF6F61;
+  --secondary-color: #FF8E6E;
+  --accent-color: #FFAD8B;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --background-light: #ffffff;
+  --background-dark: #f8f8f8;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --navbar-height: 70px;
+  --transition-speed: 0.3s;
+  --border-radius: 8px;
+  --max-width: 1200px;
+}
+
+/* Base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar container */
+.navbar {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+  height: var(--navbar-height);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: var(--shadow);
+  transition: all var(--transition-speed) ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  height: 60px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 100%;
+}
+
+/* Logo styles */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: transform var(--transition-speed) ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo-icon {
+  transition: transform var(--transition-speed) ease;
+}
+
+.navbar-logo:hover .logo-icon {
+  transform: rotate(5deg);
+}
+
+/* Menu toggle button */
+.menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.menu-icon {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+}
+
+.menu-icon .bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background-color: var(--text-dark);
+  transition: all var(--transition-speed) ease;
+  border-radius: 2px;
+}
+
+/* Animated hamburger to X */
+.menu-icon.open .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.menu-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Navigation links */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.nav-items {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  height: 100%;
+}
+
+/* Navigation items */
+.navbar-item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  padding: 0 1rem;
+  transition: all var(--transition-speed) ease;
+  position: relative;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  gap: 0.5rem;
+}
+
+/* Icons for nav items */
+.nav-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.7;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.navbar-item:hover .nav-icon,
+.navbar-item.active .nav-icon {
+  opacity: 1;
+}
+
+/* Dropdown arrow */
+.dropdown-arrow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin-left: 5px;
+  position: relative;
+}
+
+.dropdown-arrow::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--text-dark);
+  border-bottom: 2px solid var(--text-dark);
+  transform: rotate(45deg);
+  transition: all var(--transition-speed) ease;
+}
+
+.dropdown-arrow.up::before {
+  transform: rotate(-135deg);
+}
+
+/* Highlight for active item */
+.navbar-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background-color: var(--primary-color);
+  transform: translateX(-50%);
+  transition: width var(--transition-speed) ease;
+}
+
+.appName{
+  font-weight: 800;
+  color: #f48c1c;
+  text-shadow: 2px 2px 2px rgb(140, 31, 17);
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+/* Hover and active states */
+.navbar-item:hover,
+.navbar-item.active {
+  color: var(--primary-color);
+}
+
+.navbar-item:hover::after,
+.navbar-item.active::after {
+  width: 60%;
+}
+
+/* Register button styling */
+.register-btn {
+  margin-left: 0.5rem;
+  background-color: var(--primary-color);
+  color: white !important;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.25rem !important;
+  height: auto !important;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 2px 8px rgba(255, 111, 97, 0.3);
+}
+
+.register-btn:hover,
+.register-btn.active {
+  background-color: #ff5c4e;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 111, 97, 0.4);
+}
+
+.register-btn::after {
+  display: none;
+}
+
+.register-btn .dropdown-arrow::before {
+  border-color: white;
+}
+
+/* Dropdown styles */
+.dropdown-trigger {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 160px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: visible;
+  transition: all var(--transition-speed) ease;
+  z-index: 100;
+  overflow: hidden;
+  list-style: none;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  animation: fadeIn var(--transition-speed) ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Dropdown item styling */
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  color: var(--text-dark);
+  transition: all var(--transition-speed) ease;
+  position: relative;
+}
+
+.dropdown-item::before {
+  content: "";
+  position: absolute;
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all var(--transition-speed) ease;
+}
+
+.dropdown-item:hover {
+  color: var(--primary-color);
+  background-color: rgba(255, 111, 97, 0.05);
+  padding-left: 1.75rem;
+}
+
+.dropdown-item:hover::before {
+  opacity: 1;
+  width: 6px;
+  height: 6px;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .navbar-links {
+    position: fixed;
+    top: var(--navbar-height);
+    left: 0;
+    right: 0;
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    max-height: 0;
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    height: auto;
+  }
+
+  .navbar.scrolled .navbar-links {
+    top: 60px;
+  }
+
+  .navbar-links.open {
+    max-height: 500px;
+    padding: 1rem;
+    overflow-y: auto;
+  }
+
+  .nav-items {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 0.5rem;
+    height: auto;
+  }
+
+  .navbar-item {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    height: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-item::after {
+    display: none;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    box-shadow: none;
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    width: calc(100% - 1.5rem);
+    padding: 0;
+    animation: none;
+    border-left: 2px solid var(--primary-color);
+    border-radius: 0;
+  }
+
+  .dropdown-item {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .register-btn {
+    margin: 0.5rem 0 0 0;
+    width: 100%;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

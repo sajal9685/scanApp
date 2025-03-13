@@ -1,0 +1,180 @@
+/* Base styles with CSS custom properties for easy theming */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --text-color: #2c3e50;
+    --text-light: #34495e;
+    --error-color: #e74c3c;
+    --success-color: #27ae60;
+    --border-color: #e0e0e0;
+    --bg-gradient-start: #f5f7fa;
+    --bg-gradient-end: #fef6f6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --focus-shadow: rgba(52, 152, 219, 0.1);
+  }
+  
+  /* Reset box-sizing */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container using CSS Grid for better centering */
+  .login-container {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: clamp(1rem, 5vw, 2rem);
+    background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  }
+  
+  /* Form with improved responsive width */
+  .login-form {
+    background: white;
+    padding: clamp(1.5rem, 4vw, 2rem);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    width: min(100%, 400px);
+    transition: transform 0.3s ease;
+    will-change: transform;
+  }
+  
+  @media (hover: hover) {
+    .login-form:hover {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Typography with fluid scaling */
+  .login-title {
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  
+  /* Form groups with consistent spacing */
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: clamp(0.875rem, 2vw, 0.9rem);
+  }
+  
+  /* Enhanced input styles with better touch targets */
+  .form-group input {
+    width: 100%;
+    padding: clamp(0.7rem, 2vw, 0.8rem);
+    border: 2px solid var(--border-color);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  /* Focus styles with better visibility */
+  .form-group input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 3px var(--focus-shadow);
+  }
+  
+  /* Button with improved touch target and states */
+  .login-button {
+    width: 100%;
+    padding: clamp(0.8rem, 2.5vw, 1rem);
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    min-height: 44px; /* Minimum touch target size */
+    touch-action: manipulation;
+  }
+  
+  .login-button:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+  }
+  
+  .login-button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+  }
+  
+  /* Optimized loading animation */
+  .login-button.loading {
+    position: relative;
+    color: transparent;
+  }
+  
+  .login-button.loading::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+  }
+  
+  @keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  /* Message styles */
+  .error-message {
+    color: var(--error-color);
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+  
+  /* High-contrast and reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .login-form,
+    .login-button,
+    .form-group input {
+      transition: none;
+    }
+  }
+  
+  @media (prefers-contrast: high) {
+    :root {
+      --primary-color: #0066cc;
+      --primary-dark: #004d99;
+      --text-color: #000000;
+      --text-light: #1a1a1a;
+    }
+  }
+  
+  /* Mobile-first responsive adjustments */
+  @media screen and (max-width: 480px) {
+    .login-form {
+      padding: 1.25rem;
+    }
+  
+    .login-title {
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+  
+    .form-group {
+      margin-bottom: 1rem;
+    }
+  }
